@@ -3,7 +3,21 @@
 @Metadata.ignorePropagatedAnnotations: true
 @VDM.viewType: #COMPOSITE
 define root view entity ZHDS_RTR_TRAVEL as select from /dmo/travel_m
---composition of target_data_source_name as _association_name
+composition[0..*] of ZHDS_RTR_BOOKING as _Booking
+
+association of one to one /DMO/I_Agency as _Agency on
+$projection.AgencyId = _Agency.AgencyID
+
+association of one to one /DMO/I_Customer as _Customer on
+$projection.CustomerId = _Customer.CustomerID
+
+association of one to one I_Currency as _Currency on
+$projection.CurrencyCode = _Currency.Currency
+
+association of one to one /DMO/I_Overall_Status_VH as _OverallStatus on
+$projection.OverallStatus = _OverallStatus.OverallStatus
+
+
 {
     
     key travel_id as TravelId,
@@ -25,5 +39,12 @@ define root view entity ZHDS_RTR_TRAVEL as select from /dmo/travel_m
     @Semantics.user.lastChangedBy: true
     last_changed_by as LastChangedBy,
     @Semantics.systemDateTime.lastChangedAt: true
-    last_changed_at as LastChangedAt
+    last_changed_at as LastChangedAt,
+    
+    -- Expose the composition
+    _Booking,
+    _Agency,
+    _Customer,
+    _Currency,
+    _OverallStatus
 }
