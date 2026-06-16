@@ -12,8 +12,8 @@ define view entity ZHDS_RTR_BOOKINGSUPPL_PROCESSO as projection on ZHDS_RTR_BOOK
     CurrencyCode,
     LastChangedAt,
     /* Associations */
-    _Booking,
+    _Booking : redirected to parent ZHDS_RTR_BOOKING_PROCESSOR,
     _Supplement,
     _SupplementText,
-    _Travel
+    _Travel : redirected to ZHDS_RTR_TRAVEL_PROCESSOR
 }

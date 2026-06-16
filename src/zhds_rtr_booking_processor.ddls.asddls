@@ -17,9 +17,9 @@ define view entity ZHDS_RTR_BOOKING_PROCESSOR as projection on ZHDS_RTR_BOOKING
     LastChangedAt,
     /* Associations */
     _BookingStatus,
-    _BookingSuppl,
+    _BookingSuppl : redirected to composition child ZHDS_RTR_BOOKINGSUPPL_PROCESSO,
     _Carrier,
     _Connection,
     _Customer,
-    _Travel
+    _Travel : redirected to parent ZHDS_RTR_TRAVEL_PROCESSOR
 }
