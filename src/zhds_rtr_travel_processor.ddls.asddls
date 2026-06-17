@@ -2,6 +2,7 @@
 @EndUserText.label: 'Projection for root travel entity'
 @Metadata.ignorePropagatedAnnotations: false
 @VDM.viewType: #CONSUMPTION
+@Metadata.allowExtensions: true
 define root view entity ZHDS_RTR_TRAVEL_PROCESSOR as projection on ZHDS_RTR_TRAVEL
 {
     key TravelId,
@@ -18,6 +19,10 @@ define root view entity ZHDS_RTR_TRAVEL_PROCESSOR as projection on ZHDS_RTR_TRAV
     CreatedAt,
     LastChangedBy,
     LastChangedAt,
+    AgencyName,
+    CustomerName,
+    StatusText,
+    OverallStatusColor,
     /* Associations */
     _Agency,
     _Booking : redirected to composition child ZHDS_RTR_BOOKING_PROCESSOR,
