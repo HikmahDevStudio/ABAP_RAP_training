@@ -24,6 +24,7 @@ define root view entity ZHDS_RTR_TRAVEL_PROCESSOR as projection on ZHDS_RTR_TRAV
     StatusText,
     OverallStatusColor,
     /* Associations */
+    -- Expose associations
     _Agency,
     _Booking : redirected to composition child ZHDS_RTR_BOOKING_PROCESSOR,
     _Currency,
