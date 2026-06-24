@@ -1,5 +1,5 @@
 @Metadata.layer: #CUSTOMER
-@UI.headerInfo: { 
+@UI.headerInfo: {
     typeName: 'Booking',
     typeNamePlural: 'Bookings',
     title: {  value: 'BookingId' },
@@ -8,20 +8,27 @@
 annotate entity ZHDS_RTR_BOOKING_PROCESSOR with
 {
 
-  @UI.facet: [{ 
+  @UI.facet: [{
         id: 'idBookingInfo',
         purpose: #STANDARD,
         type: #IDENTIFICATION_REFERENCE,
         label: 'Booking Info',
         position: 10
+   },
+   { 
+        id: 'idBookingSuppliment',
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Supplements',
+        targetElement: '_BookingSuppl'
    }]
-    
+
   //    TravelId;
   @UI.lineItem: [{ position: 10 }]
   @UI.identification: [{ position: 10 }]
   BookingId;
   @UI.lineItem: [{ position: 20 }]
-  @UI.identification: [{ position: 20 }]  
+  @UI.identification: [{ position: 20 }]
   BookingDate;
   @UI.lineItem: [{ position: 30 }]
   @UI.identification: [{ position: 30 }]
@@ -38,7 +45,7 @@ annotate entity ZHDS_RTR_BOOKING_PROCESSOR with
   @UI.lineItem: [{ position: 70 }]
   @UI.identification: [{ position: 70 }]
   FlightPrice;
-  @UI.identification: [{ position: 80 }]  
+  @UI.identification: [{ position: 80 }]
   CurrencyCode;
   @UI.lineItem: [{ position: 90 }]
   BookingStatus;
