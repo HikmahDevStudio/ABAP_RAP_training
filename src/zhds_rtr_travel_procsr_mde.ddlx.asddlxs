@@ -18,7 +18,7 @@ annotate entity ZHDS_RTR_TRAVEL_PROCESSOR
             type: #DATAPOINT_REFERENCE,
             position: 10,
             targetQualifier: 'totalTravelPrice'
-         },
+         }, 
          { 
             id: 'TravelHeaderStatus',
             purpose: #HEADER,
@@ -58,6 +58,14 @@ annotate entity ZHDS_RTR_TRAVEL_PROCESSOR
             parentId: 'IdGeneralInfo',
             label: 'Costs',
             targetQualifier: 'travelCostQualifier'
+         },
+         {
+            id: 'idItems',
+            purpose: #STANDARD,
+            type: #LINEITEM_REFERENCE,
+            position: 20,
+            label: 'Bookings',
+            targetElement: '_Booking'
          }
      ]
     
